@@ -14,11 +14,11 @@ const OfferDetail = (props) => {
               <img src={img} width="360" height="360" alt={alt} />
             </div>
             <div className="right-pane">
-                 <h1>{post.title}</h1>
-                 <div>{post.detail}</div>
+                 <h1 className="post-title">{post.title}</h1>
+                 <div className="offer-text">{post.detail}</div>
                  <div>
-                     <div>{post.price}</div>
-                     <div>add to cart</div>
+                     <div className="post-price"><span className="post-title">Price:</span> {post.price}</div>
+                     <div  className="post-title" >contact for order <span className="post-price"> 0300 1234567</span> </div>
                  </div>
             </div>
         </div>

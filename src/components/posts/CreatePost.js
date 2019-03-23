@@ -2,12 +2,14 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux'
 import {  Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 import { createPost } from '../store/actions/postActions';
+import {  Redirect } from 'react-router-dom'
 
 class CreatePost extends Component {
   state = {
     title: '',
     price: '',
-    detail: ''
+    detail: '',
+    type:''
   }
   handleChange = (e) => {
     this.setState({
@@ -16,11 +18,16 @@ class CreatePost extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state)
     this.props.createPost(this.state)
   }
   render() {
+    const { auth } = this.props
+    if(auth.uid !== "Q3qCQZEOxFZ4qrW6a5d5oFgeqTK2" ) return <Redirect to='/' />
+
     return (
-      <Form>
+      <div className="create-post-area">
+      <Form className="create-post">
          <FormGroup>
           <Label for="exampleDatetime">title</Label>
           <Input
@@ -38,7 +45,7 @@ class CreatePost extends Component {
             type="number"
             name="price"
             id="price"
-            placeholder="number placeholder"
+            placeholder="price"
           />
         </FormGroup>
         <FormGroup>
@@ -46,22 +53,38 @@ class CreatePost extends Component {
           <Input onChange= {this.handleChange} type="textarea" name="text" id="detail" />
         </FormGroup>
         <FormGroup>
+          <Label for="exampleSelect">Select Offer Type</Label>
+          <Input onChange= {this.handleChange} type="select" name="select" id="type">
+            <option>type</option>
+            <option>Men</option>
+            <option>Women</option>
+            <option>Kids</option>
+
+          </Input>
+        </FormGroup>
+        <FormGroup>
           <Label for="exampleFile">File</Label>
           <Input onChange= {this.handleChange} type="file" name="file" id="exampleFile" />
           <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi vitae, et praesentium veritatis
           </FormText>
         </FormGroup>
         
-        <Button onClick={this.handleSubmit}>CreatePost</Button>
+    <Button className="create-post-btn" onClick={this.handleSubmit}> CreatePost </Button>
       </Form>
+      </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return{
+      auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps= (dispatch) => {
 return{
   createPost: (post) => dispatch(createPost(post))
 }
 }
-export default connect(null, mapDispatchToProps)(CreatePost);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

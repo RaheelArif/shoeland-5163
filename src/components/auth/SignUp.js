@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Form, Input, } from 'reactstrap';
-import { signIn } from '../store/actions/authActions';
-import { Redirect, Link } from 'react-router-dom'
+import { signUp } from '../store/actions/authActions';
+import { Redirect } from 'react-router-dom'
 
-
-class SignIn extends Component {
+class SignUp extends Component {
 state = {
     email: "",
-    password: ""
+    password: "",
+    firstName:"",
+    lastName: ""
 }
 handleChange = (e) => {
     this.setState({
@@ -17,20 +18,21 @@ handleChange = (e) => {
 };
 handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signIn(this.state)
+    this.props.signUp(this.state)
 }
 render() {
     const {authErr, auth} = this.props
-    if(auth.uid ) return <Redirect to='/CreatePost' />
+    if(auth.uid) return <Redirect to='/' />
     return (
         <div className="login-area">
-            <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form onSubmit={this.handleSubmit} className="signup-form">
+                <Input onChange={this.handleChange} type="text" name="firstName" id="firstName" placeholder="first name " />
+                <Input onChange={this.handleChange} type="text" name="lastName" id="lastName" placeholder="last name" />
                 <Input onChange={this.handleChange} type="email" name="email" id="email" placeholder="enter your email" />
                 <Input onChange={this.handleChange} type="password" name="password" id="password" placeholder="enter your password" />
-                <Button className="btn-success">Login </Button>
+                <Button className="btn-success">signup</Button>
             </Form>
-                {authErr ? <p className="login-error">{authErr} make sure your email or password is correct</p>: null}
-               <Link to="/signup"> <Button>Sign Up </Button> </Link>
+                {authErr ? <p className="login-error">{authErr}</p>: null}
         </div>
     )}
 }
@@ -43,7 +45,7 @@ const mapStateToProps = (state) => {
 
 const mapDipatchToProps = (dispatch) => {
 return{
-    signIn: (credentials) => {dispatch(signIn(credentials))}
+    signUp: (newUser) => {dispatch(signUp(newUser))}
 }
 }
-export default connect(mapStateToProps,mapDipatchToProps)(SignIn);
+export default connect(mapStateToProps,mapDipatchToProps)(SignUp);

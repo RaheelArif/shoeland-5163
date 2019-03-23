@@ -11,10 +11,10 @@ const Cards = (post) => {
       <Card className="card">
         <CardImg top className="card-img"  src={shoe1} alt="Card image cap" />
         <CardBody>
-          <CardTitle>{post.post.title}</CardTitle>
-          <CardSubtitle>{post.post.price}</CardSubtitle>
+             <CardTitle className="post-title">{post.post.title}</CardTitle>
           <CardText className="card-text">{post.post.detail}</CardText>
-          <Button>Button</Button>
+          <CardSubtitle className="post-price"> <span className="price-p">Price:</span> Rs {post.post.price}.</CardSubtitle>
+          <Button className="view-this">view this</Button>
         </CardBody>
       </Card>
    

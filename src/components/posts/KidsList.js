@@ -6,21 +6,20 @@ import { compose } from 'redux'
 import { Link } from 'react-router-dom'
 
 
-const OfferList = ({post}) => {
-
+const KidsList = ({post}) => {
 
     return (
         <div className="all-card-box">
-            <h1 className="all-card-title">Best Shoes for Boys</h1>
             <div className="all-card">
-            {post && post.map( post =>{
+            
+            { post && post.map( post =>{
               return (
-                <Link key={post.id} to={'/offerList/' + post.id}>
-
+                  post.type === "Kids" ? (
+                <Link className="card-link" key={post.id} to={'/OfferList/' + post.id}>
                 <div  className="all-card-margin">
                     <Card  post={post} />
                 </div>
-                </Link>
+                  </Link> ) : null
 
               )
             })}
@@ -32,7 +31,6 @@ const OfferList = ({post}) => {
     )
 }
 const mapStateToProps = (state)=> {
-    console.log(state)
     return{
 
         post: state.firestore.ordered.post
@@ -44,4 +42,4 @@ export default compose(
     firestoreConnect([
         {collection: 'post'}
     ])
-)(OfferList) ;
+)(KidsList) ;

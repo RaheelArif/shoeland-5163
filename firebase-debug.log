@@ -1,0 +1,51 @@
+[debug] [2019-03-23T14:52:25.615Z] ----------------------------------------------------------------------
+[debug] [2019-03-23T14:52:25.624Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Master Mind\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-03-23T14:52:25.624Z] CLI Version:   6.5.0
+[debug] [2019-03-23T14:52:25.625Z] Platform:      win32
+[debug] [2019-03-23T14:52:25.625Z] Node Version:  v10.13.0
+[debug] [2019-03-23T14:52:25.639Z] Time:          Sat Mar 23 2019 19:52:25 GMT+0500 (Pakistan Standard Time)
+[debug] [2019-03-23T14:52:25.639Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-23T14:52:25.680Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-23T14:52:25.682Z] > authorizing via signed-in user
+[debug] [2019-03-23T14:52:25.683Z] [iam] checking project sohoeland for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-03-23T14:52:25.690Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sohoeland:testIamPermissions  
+
+[debug] [2019-03-23T14:52:39.229Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-23T14:52:39.236Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/sohoeland  
+ 
+[debug] [2019-03-23T14:52:46.845Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'sohoeland'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-03-23T14:52:46.867Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sohoeland/versions  
+
+[debug] [2019-03-23T14:52:57.554Z] <<< HTTP RESPONSE 200
+[info] i  hosting[sohoeland]: beginning deploy...
+[info] i  hosting[sohoeland]: found 20 files in dist
+[debug] [2019-03-23T14:52:57.613Z] [hosting] hash cache [ZGlzdA] not populated
+[debug] [2019-03-23T14:52:59.586Z] [hosting] hash cache [ZGlzdA] stored for 20 files
+[debug] [2019-03-23T14:52:59.587Z] [hosting][hash queue][FINAL]
+[debug] [2019-03-23T14:52:59.588Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sohoeland/versions/c815382bf25aff90:populateFiles  
+ <request body omitted>
+[debug] [2019-03-23T14:53:11.014Z] [populateQueue] Retrying task index 0
+[debug] [2019-03-23T14:53:11.016Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sohoeland/versions/c815382bf25aff90:populateFiles  
+ <request body omitted>
+[debug] [2019-03-23T14:53:16.493Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-23T14:53:16.539Z] [hosting][populate queue][FINAL]
+[debug] [2019-03-23T14:53:16.539Z] [hosting] uploads queued: 20
+[debug] [2019-03-23T14:53:30.659Z] [uploadQueue] Retrying task 7298701b334fbf961e0410799be4ce5ffe9284d8155a47e5a514d665cb00d2de
+[debug] [2019-03-23T14:53:32.727Z] [uploadQueue] Retrying task 64f168b264b27310196605183ed19448f3aee9e705caafc64e3784fc7dd01d23
+[debug] [2019-03-23T14:54:08.440Z] [uploadQueue] Retrying task 3a7b88ae439c48dccec75415bdd86ee46b933b4f4fa3fa22907fa02d450d0492
+[debug] [2019-03-23T14:54:16.513Z] [uploadQueue] Retrying task b364f46198d305937ec8f7854a66f1fce3d834cc3a12761009e8aabbe59ae051
+[debug] [2019-03-23T14:54:19.973Z] [uploadQueue] Retrying task 9ba386cd53320cebe6e715a94bdf6b2fbf79c40ad68b09947c6e66c5aea273a9
+[debug] [2019-03-23T14:54:19.974Z] [uploadQueue] Retrying task 004ee294733bc2c51ab56e3190d5115978070dd290f923fbd97367b9986a0536
+[debug] [2019-03-23T14:54:32.252Z] [uploadQueue] Retrying task cad80b8ab000b32354edb9ceea6fa00886b8bd2592d38b826258c59cbf703d60
+[debug] [2019-03-23T14:54:35.208Z] [uploadQueue] Retrying task d419d259d5cdb4043a8d041a37a603be1fb934a2778c5db549d30a5457ed141a
+[debug] [2019-03-23T14:55:09.630Z] [uploadQueue] Retrying task 3a7b88ae439c48dccec75415bdd86ee46b933b4f4fa3fa22907fa02d450d0492
+[debug] [2019-03-23T14:55:18.088Z] [uploadQueue] Retrying task 0caddce1435d2611358a8dd486d15e804ebde764cb80fafc7ea8c848fb9570f4
+[debug] [2019-03-23T14:55:58.244Z] [uploadQueue] Retrying task 0caddce1435d2611358a8dd486d15e804ebde764cb80fafc7ea8c848fb9570f4
+[debug] [2019-03-23T14:56:48.554Z] [uploadQueue] Retrying task cad80b8ab000b32354edb9ceea6fa00886b8bd2592d38b826258c59cbf703d60
+[debug] [2019-03-23T14:57:25.914Z] [uploadQueue] Retrying task b364f46198d305937ec8f7854a66f1fce3d834cc3a12761009e8aabbe59ae051
+[debug] [2019-03-23T14:58:42.947Z] [uploadQueue] Retrying task 0caddce1435d2611358a8dd486d15e804ebde764cb80fafc7ea8c848fb9570f4
